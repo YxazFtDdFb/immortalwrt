@@ -569,16 +569,3 @@ define Device/zyxel_nbg7815
 		kmod-hci-uart kmod-hwmon-tmp103
 endef
 TARGET_DEVICES += zyxel_nbg7815
-
-define Device/inseego_fg2000
-  DEVICE_TITLE := Inseego_Fg2000
-  SOC := qcom-ipq807x
-  UBOOT_MACHINE := ipq807x_hk09_defconfig
-  DEVICE_DTS := ipq8072-fg2000.dts
-  DEVICE_DTS_DIR := $(LINUX_DIR)/arch/arm64/boot/dts/qcom
-  DEVICE_PACKAGES := kmod-ath10k-ct firmware-ath10k qca-nss-netdev
-  IMAGES := sysupgrade.bin
-  IMAGE/sysupgrade.bin := sysupgrade | rootfs | $$(call find_image,KERNEL)
-  SUPPORTED_DEVICES += your_device_name
-endef
-TARGET_DEVICES += inseego_fg2000
